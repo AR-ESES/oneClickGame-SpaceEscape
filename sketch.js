@@ -26,7 +26,7 @@ ground_image=loadImage("Background.png");
 }
 
 function setup() {
- createCanvas(300,160);
+ createCanvas(1100,1000);
   
 ground=createSprite(0,0,0,0);
   ground.shapeColor="white";
