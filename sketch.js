@@ -10,19 +10,21 @@ var score;
 var gameOver,restart,gameOverImage,restartImage;
 
 function preload(){
-ground_image=loadImage("Background.png");
-  girl_running=loadAnimation("Run (1).png","Run (2).png","Run (3).png","Run (4).png","Run (5).png","Run (6).png","Run (7).png","Run (8).png","Run (9).png","Run (10).png","Run (11).png","Run (12).png","Run (14).png","Run (15).png","Run (16).png","Run (17).png","Run (18).png","Run (19).png","Run (20).png");
-  zombie_running=loadAnimation("Walk (1).png","Walk (2).png","Walk (3).png","Walk (4).png","Walk (5).png","Walk (6).png","Walk (7).png","Walk (8).png","Walk (9).png","Walk (10).png");
-  zombie_attack=loadAnimation("Attack (2).png","Attack (3).png","Attack (4).png","Attack (5).png","Attack (6).png","Attack (7).png","Attack (8).png");
-  obstacle1=loadImage("obstacle1.png");
-  zombie_idle=loadImage("Stand.png");
-  jumpSound = loadSound("jump.mp3")
-  dieSound = loadSound("die.mp3")
-  checkPointSound = loadSound("checkPoint.mp3")
-  gameOverImage=loadImage("gameOver1.png");
-  restartImage=loadImage("restart1.png");
-  girl_collided=loadImage("Dead (30).png");
-  girlImage=loadImage("Idle (1).png");
+     // preload() runs once
+    
+  ground_image=loadImage("contents/Background.png");
+  girl_running=loadAnimation("contents/Run (1).png","contents/Run (2).png","contents/Run (3).png","contents/Run (4).png","contents/Run (5).png","contents/Run (6).png","contents/Run (7).png","contents/Run (8).png","contents/Run (9).png","contents/Run (10).png","contents/Run (11).png","contents/Run (12).png","contents/Run (14).png","contents/Run (15).png","contents/Run (16).png","contents/Run (17).png","contents/Run (18).png","contents/Run (19).png","contents/Run (20).png");
+  zombie_running=loadAnimation("contents/Walk (1).png","contents/Walk (2).png","contents/Walk (3).png","contents/Walk (4).png","contents/Walk (5).png","contents/Walk (6).png","contents/Walk (7).png","contents/Walk (8).png","contents/Walk (9).png","contents/Walk (10).png");
+  zombie_attack=loadAnimation("contents/Attack (2).png","contents/Attack (3).png","contents/Attack (4).png","contents/Attack (5).png","contents/Attack (6).png","contents/Attack (7).png","contents/Attack (8).png");
+  obstacle1=loadImage("contents/obstacle1.png");
+  zombie_idle=loadImage("contents/Stand.png");
+  jumpSound = loadSound("contents/jump.mp3")
+  dieSound = loadSound("contents/die.mp3")
+  checkPointSound = loadSound("contents/checkPoint.mp3")
+  gameOverImage=loadImage("contents/gameOver1.png");
+  restartImage=loadImage("contents/restart1.png");
+  girl_collided=loadImage("contents/Dead (30).png");
+  girlImage=loadImage("contents/Idle (1).png");
 }
 
 function setup() {
