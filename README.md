@@ -15,3 +15,4 @@ Pretende-se com este projeto que desenhem e implementem um pequeno jogo de apena
 ### Referências
 
 [Flappy Bird](https://flappybird.io/)
+
