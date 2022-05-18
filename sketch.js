@@ -3,8 +3,8 @@ var END = 0;
 var gameState = PLAY;
 
 var ground,ground_image,invisible_ground;
-var BONECO_BAIXO;
-var obstaclesGroup,obstacle1,obstacle2,obstacle3,obstacle4;
+var boneco_baixo;
+var obstaclesGroup,obstacle1;
 var jumpSound,dieSound,checkpointSound;
 var score;
 var gameOver,restart,gameOverImage,restartImage;
@@ -13,15 +13,13 @@ function preload(){
      // preload() runs once
     
   ground_image=loadImage("contents/fundo.png");
-  BONECO_BAIXO    girl_running=loadAnimation("contents/boneco_baixo.png");
+  boneco_baixo=loadAnimation("contents/boneco_baixo.png");
   obstacle1=loadImage("contents/espinho_baixo.png");
   jumpSound = loadSound("contents/jump.mp3")
   dieSound = loadSound("contents/die.mp3")
   checkPointSound = loadSound("contents/checkPoint.mp3")
   gameOverImage=loadImage("contents/gameOver1.png");
   restartImage=loadImage("contents/restart1.png");
-  girl_collided=loadImage("contents/Dead (30).png");
-  BONECO_BAIXO girlImage=loadImage("contents/boneco_baixo.png");
 }
 
 function setup() {
@@ -34,12 +32,12 @@ ground.scale=1.4;
    ground.velocityX=-1
   
    girl=createSprite(300,420,600,10);
-  BONECO_BAIXO.addAnimation("boneco_baixo",BONECO_BAIXO);
-  BONECO_BAIXO.addImage("boneco_baixo",BONECO_BAIXO);
-  BONECO_BAIXO.scale=0.2;
+  boneco_baixo.addAnimation("boneco_baixo",boneco_baixo);
+  boneco_baixo.addImage("boneco_baixo",boneco_baixo);
+  boneco_baixo.scale=0.2;
  // girl.velocityX=2;
-  BONECO_BAIXO.debug=false;
-  BONECO_BAIXO.setCollider("rectangle",0,0,BONECO_BAIXO.width,BONECO_BAIXO.height)
+  boneco_baixo.debug=false;
+  boneco_baixo.setCollider("rectangle",0,0,boneco_baixo.width,boneco_baixo.height)
   
   
   
@@ -97,8 +95,8 @@ else if ( gameState===END) {
   gameOver.visible=true;
   restart.visible=true;
   ground.velocityX = 0;
-     BONECO_BAIXO.velocityY = 0
-    BONECO_BAIXO.changeImage("boneco_baixo",BONECO_BAIXO);
+     boneco_baixo.velocityY = 0
+     boneco_baixo.changeImage("boneco_baixo",boneco_baixo);
       //set lifetime of the game objects so that they are never destroyed
     obstaclesGroup.setLifetimeEach(-1);
    obstaclesGroup.setVelocityXEach(0);
@@ -119,7 +117,7 @@ function reset(){
   gameState=PLAY;
 gameOver.visible=false;
 restart.visible=false;
-BONECO_BAIXO.changeAnimation("boneco_baixo",BONECO_BAIXO);
+boneco_baixo.changeAnimation("boneco_baixo",boneco_baixo);
   obstaclesGroup.destroyEach();
   score=0;
   
