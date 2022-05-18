@@ -27,7 +27,7 @@ function setup() {
   
 ground=createSprite(0,0,0,0);
   ground.shapeColor="white";
-ground.addImage("ground_image",ground_image);
+ground.addImage("fundo",ground_image);
 ground.scale=1.4;
    ground.velocityX=-1
   
@@ -37,8 +37,7 @@ ground.scale=1.4;
   boneco_baixo.scale=0.2;
  // girl.velocityX=2;
   boneco_baixo.debug=false;
-  boneco_baixo.setCollider("rectangle",0,0,boneco_baixo.width,boneco_baixo.height)
-  
+  boneco_baixo.setCollider("rectangle",0,0,boneco_baixo.width,boneco_baixo.height);
   
   
   invisible_ground=createSprite(300,470,600,10);
