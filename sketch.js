@@ -55,7 +55,7 @@ ground.scale=1.4;
 }
 
 function draw() {
- background("black");
+ background("contents/fundo.png");
   
  // console.log(girl.y);
    //Gravity
