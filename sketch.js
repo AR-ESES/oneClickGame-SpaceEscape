@@ -3,7 +3,7 @@ var END = 0;
 var gameState = PLAY;
 
 var ground,ground_image,invisible_ground;
-var girl,girl_running,girl_collided,girlImage;
+var BONECO_BAIXO;
 var obstaclesGroup,obstacle1,obstacle2,obstacle3,obstacle4;
 var jumpSound,dieSound,checkpointSound;
 var score;
@@ -12,16 +12,16 @@ var gameOver,restart,gameOverImage,restartImage;
 function preload(){
      // preload() runs once
     
-  ground_image=loadImage("contents/Background.png");
-  girl_running=loadAnimation("contents/Run (1).png","contents/Run (2).png","contents/Run (3).png","contents/Run (4).png","contents/Run (5).png","contents/Run (6).png","contents/Run (7).png","contents/Run (8).png","contents/Run (9).png","contents/Run (10).png","contents/Run (11).png","contents/Run (12).png","contents/Run (14).png","contents/Run (15).png","contents/Run (16).png","contents/Run (17).png","contents/Run (18).png","contents/Run (19).png","contents/Run (20).png");
-  obstacle1=loadImage("contents/obstacle1.png");
+  ground_image=loadImage("contents/fundo.png");
+  BONECO_BAIXO    girl_running=loadAnimation("contents/boneco_baixo.png");
+  obstacle1=loadImage("contents/espinho_baixo.png");
   jumpSound = loadSound("contents/jump.mp3")
   dieSound = loadSound("contents/die.mp3")
   checkPointSound = loadSound("contents/checkPoint.mp3")
   gameOverImage=loadImage("contents/gameOver1.png");
   restartImage=loadImage("contents/restart1.png");
   girl_collided=loadImage("contents/Dead (30).png");
-  girlImage=loadImage("contents/Idle (1).png");
+  BONECO_BAIXO girlImage=loadImage("contents/boneco_baixo.png");
 }
 
 function setup() {
@@ -34,13 +34,12 @@ ground.scale=1.4;
    ground.velocityX=-1
   
    girl=createSprite(300,420,600,10);
-  girl.addAnimation("girl_running",girl_running);
-  girl.addImage("girl_collided",girl_collided);
-  girl.addImage("girlImage",girlImage);
-  girl.scale=0.2;
+  BONECO_BAIXO.addAnimation("boneco_baixo",BONECO_BAIXO);
+  BONECO_BAIXO.addImage("boneco_baixo",BONECO_BAIXO);
+  BONECO_BAIXO.scale=0.2;
  // girl.velocityX=2;
-  girl.debug=false;
-  girl.setCollider("rectangle",0,0,girl.width,girl.height)
+  BONECO_BAIXO.debug=false;
+  BONECO_BAIXO.setCollider("rectangle",0,0,BONECO_BAIXO.width,BONECO_BAIXO.height)
   
   
   
@@ -98,8 +97,8 @@ else if ( gameState===END) {
   gameOver.visible=true;
   restart.visible=true;
   ground.velocityX = 0;
-     girl.velocityY = 0
-    girl.changeImage("girlImage",girlImage);
+     BONECO_BAIXO.velocityY = 0
+    BONECO_BAIXO.changeImage("boneco_baixo",BONECO_BAIXO);
       //set lifetime of the game objects so that they are never destroyed
     obstaclesGroup.setLifetimeEach(-1);
    obstaclesGroup.setVelocityXEach(0);
@@ -120,10 +119,10 @@ function reset(){
   gameState=PLAY;
 gameOver.visible=false;
 restart.visible=false;
-girl.changeAnimation("girl_running",girl_running);
+BONECO_BAIXO.changeAnimation("boneco_baixo",BONECO_BAIXO);
   obstaclesGroup.destroyEach();
   score=0;
-  zombie.x=50;
+  
 }
 
 function spawnObstacles() {
