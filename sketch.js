@@ -3,7 +3,7 @@ var END = 0;
 var gameState = PLAY;
 
 var ground,ground_image,invisible_ground;
-var girl,girl_running,girl_collided,girlImage,zombie,zombie_running,zombie_attack;
+var girl,girl_running,girl_collided,girlImage;
 var obstaclesGroup,obstacle1,obstacle2,obstacle3,obstacle4;
 var jumpSound,dieSound,checkpointSound;
 var score;
@@ -14,10 +14,7 @@ function preload(){
     
   ground_image=loadImage("contents/Background.png");
   girl_running=loadAnimation("contents/Run (1).png","contents/Run (2).png","contents/Run (3).png","contents/Run (4).png","contents/Run (5).png","contents/Run (6).png","contents/Run (7).png","contents/Run (8).png","contents/Run (9).png","contents/Run (10).png","contents/Run (11).png","contents/Run (12).png","contents/Run (14).png","contents/Run (15).png","contents/Run (16).png","contents/Run (17).png","contents/Run (18).png","contents/Run (19).png","contents/Run (20).png");
-  zombie_running=loadAnimation("contents/Walk (1).png","contents/Walk (2).png","contents/Walk (3).png","contents/Walk (4).png","contents/Walk (5).png","contents/Walk (6).png","contents/Walk (7).png","contents/Walk (8).png","contents/Walk (9).png","contents/Walk (10).png");
-  zombie_attack=loadAnimation("contents/Attack (2).png","contents/Attack (3).png","contents/Attack (4).png","contents/Attack (5).png","contents/Attack (6).png","contents/Attack (7).png","contents/Attack (8).png");
   obstacle1=loadImage("contents/obstacle1.png");
-  zombie_idle=loadImage("contents/Stand.png");
   jumpSound = loadSound("contents/jump.mp3")
   dieSound = loadSound("contents/die.mp3")
   checkPointSound = loadSound("contents/checkPoint.mp3")
@@ -46,14 +43,6 @@ ground.scale=1.4;
   girl.setCollider("rectangle",0,0,girl.width,girl.height)
   
   
-  zombie=createSprite(50,410,600,10);
-  zombie.addAnimation("zombie_running",zombie_running);
-  zombie.addAnimation("zombie_attack",zombie_attack);
-  zombie.addImage("zombie_idle",zombie_idle);
-  zombie.scale=0.2;
-  zombie.debug=false;
- // zombie.velocityY=-13;
- // zombie.velocityX=Math.round(random(1,2));
   
   invisible_ground=createSprite(300,470,600,10);
   invisible_ground.visible=false;
@@ -77,10 +66,6 @@ function draw() {
 girl.velocityY = girl.velocityY + 0.8;
 girl.collide(invisible_ground); 
   
-   //Gravity
-zombie.velocityY = zombie.velocityY + 0.8;
-zombie.collide(invisible_ground); 
-  
   
    if (gameState===PLAY){
     gameOver.visible=false;
@@ -88,10 +73,7 @@ zombie.collide(invisible_ground);
     //  zombie.y=girl.y;
    score = score + Math.round(getFrameRate()/60);
  
-    spawnObstacles();
-   if (obstaclesGroup.isTouching(zombie)){
-     zombie.velocityY=-12;
-   }
+
  ground.velocityX = -(4 + 3* score/100);
      
    if (ground.x < 0){
@@ -118,12 +100,6 @@ else if ( gameState===END) {
   ground.velocityX = 0;
      girl.velocityY = 0
     girl.changeImage("girlImage",girlImage);
-  zombie.changeAnimation("zombie_attack",zombie_attack);
-     zombie.x=girl.x;
-  if (zombie.isTouching(girl)) {
-    girl.changeImage("girl_collided",girl_collided);
-    zombie.changeImage("zombie_idle",zombie_idle);
-  }
       //set lifetime of the game objects so that they are never destroyed
     obstaclesGroup.setLifetimeEach(-1);
    obstaclesGroup.setVelocityXEach(0);
