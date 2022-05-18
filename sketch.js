@@ -13,7 +13,7 @@ function preload(){
      // preload() runs once
     
   ground_image=loadImage("contents/fundo.png");
-  boneco_baixo=loadAnimation("contents/boneco_baixo.png");
+  boneco_baixo=loadImage("contents/boneco_baixo.png");
   obstacle1=loadImage("contents/espinho_baixo.png");
   jumpSound = loadSound("contents/jump.mp3")
   dieSound = loadSound("contents/die.mp3")
@@ -31,7 +31,7 @@ ground.addImage("ground_image",ground_image);
 ground.scale=1.4;
    ground.velocityX=-1
   
-   girl=createSprite(300,420,600,10);
+   boneco_baixo=createSprite(300,420,600,10);
   boneco_baixo.addAnimation("boneco_baixo",boneco_baixo);
   boneco_baixo.addImage("boneco_baixo",boneco_baixo);
   boneco_baixo.scale=0.2;
@@ -60,8 +60,8 @@ function draw() {
   
  // console.log(girl.y);
    //Gravity
-girl.velocityY = girl.velocityY + 0.8;
-girl.collide(invisible_ground); 
+boneco_baixo.velocityY = boneco_baixo.velocityY + 0.8;
+boneco_baixo.collide(invisible_ground); 
   
   
    if (gameState===PLAY){
@@ -81,12 +81,12 @@ girl.collide(invisible_ground);
        checkPointSound.play() 
     }
     
- if((keyDown("space")&& girl.y >= 220)) {
-   girl.velocityY = -12;
+ if((keyDown("space")&& boneco_baixo.y >= 220)) {
+   boneco_baixo.velocityY = -12;
     jumpSound.play();
   }  
   
-  if (girl.isTouching(obstaclesGroup)){
+  if (boneco_baixo.isTouching(obstaclesGroup)){
     gameState=END;
      dieSound.play();
   }
@@ -120,7 +120,6 @@ restart.visible=false;
 boneco_baixo.changeAnimation("boneco_baixo",boneco_baixo);
   obstaclesGroup.destroyEach();
   score=0;
-  
 }
 
 function spawnObstacles() {
