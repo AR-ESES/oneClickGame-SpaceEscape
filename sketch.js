@@ -22,12 +22,12 @@ function preload(){
   
   cloudImage = loadImage("cloud.png");
   
-  obstacle1 = loadImage("h1.png");
-  obstacle2 = loadImage("h2.png");
-  obstacle3 = loadImage("h3.png");
-  obstacle4 = loadImage("h4.png");
-  obstacle5 = loadImage("h2.png");
-  obstacle6 = loadImage("h3.png");
+  obstacle1 = loadImage("espinho_baixo.png");
+  obstacle2 = loadImage("espinho_baixo.png");
+  obstacle3 = loadImage("espinho_baixo.png");
+  obstacle4 = loadImage("espinho_baixo.png");
+  obstacle5 = loadImage("espinho_baixo.png");
+  obstacle6 = loadImage("espinho_baixo.png");
   
   restartImg = loadImage("res.png")
   gameOverImg = loadImage("go.png")
