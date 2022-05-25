@@ -4,6 +4,7 @@ var gameState = PLAY;
 var bg;
 var bgImage;
 
+
 var player, player_running,player_collided;
 var ground, invisibleGround, groundImage;
 
