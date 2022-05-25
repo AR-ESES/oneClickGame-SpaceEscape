@@ -15,8 +15,8 @@ var gameOverImg,restartImg
 var jumpSound , checkPointSound, dieSound
 
 function preload(){
-  player_running = loadAnimation("r1.png","r2.png","r3.png","r4.png","r5.png","r6.png","r7.png","r8.png");
-  playercollided = loadImage("r1.png");
+  player_running = loadAnimation("boneco_baixo.png","boneco_baixo.png","boneco_baixo.png","boneco_baixo.png","boneco_baixo.png","boneco_baixo.png","boneco_baixo.png"; "boneco_baixo.png");
+  playercollided = loadImage("boneco_baixo.png");
   bgImage = loadImage("bg.png")
   groundImage = loadImage("race.png");
   
