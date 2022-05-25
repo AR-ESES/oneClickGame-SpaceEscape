@@ -38,7 +38,7 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(600, 200);
+  createCanvas(1350, 720);
 
   var message = "This is a message";
  console.log(message)
