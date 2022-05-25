@@ -20,7 +20,7 @@ function preload(){
   bgImage = loadImage("fundo.png")
   groundImage = loadImage("race.png");
   
-  cloudImage = loadImage("cloud.png");
+  cloudImage = loadImage("drone.png");
   
   obstacle1 = loadImage("espinho_baixo.png");
   obstacle2 = loadImage("espinho_baixo.png");
@@ -29,8 +29,8 @@ function preload(){
   obstacle5 = loadImage("espinho_baixo.png");
   obstacle6 = loadImage("espinho_baixo.png");
   
-  restartImg = loadImage("res.png")
-  gameOverImg = loadImage("go.png")
+  restartImg = loadImage("restart.png")
+  gameOverImg = loadImage("game_over.png")
   
   jumpSound = loadSound("jump.mp3")
   dieSound = loadSound("die.mp3")
