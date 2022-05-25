@@ -15,10 +15,10 @@ var gameOverImg,restartImg
 var jumpSound , checkPointSound, dieSound
 
 function preload(){
-  player_running = loadAnimation("boneco_baixo.png","boneco_baixo.png","boneco_baixo.png","boneco_baixo.png","boneco_baixo.png","boneco_baixo.png","boneco_baixo.png"; "boneco_baixo.png");
+  player_running = loadAnimation("boneco_baixo.png","boneco_baixo.png","boneco_baixo.png","boneco_baixo.png","boneco_baixo.png","boneco_baixo.png","boneco_baixo.png", "boneco_baixo.png");
   playercollided = loadImage("boneco_baixo.png");
   bgImage = loadImage("fundo.png")
-  groundImage = loadImage("race.png");
+  groundImage = loadImage("chao.png");
   
   cloudImage = loadImage("drone.png");
   
@@ -42,37 +42,37 @@ function setup() {
 
   var message = "This is a message";
  console.log(message)
-  bg = createSprite(300,130,600,200);
+   bg = createSprite(700,130,600,200);
   player = createSprite(50,160,20,50);
   player.addAnimation("running", player_running);
   player.addAnimation("collided", player_collided);
   bg.addImage("bg",bgImage)
-  bg.scale = 0.7
+  bg.scale = 1.2
 
-  player.scale = 0.2;
+  player.scale = 0.9;
   
-  ground = createSprite(200,300,400,20);
-  ground.addImage("ground",groundImage);
+  ground = createSprite(700,300);
+  ground.addImage("chao", groundImage);
   ground.x = ground.width /2;
   
-  gameOver = createSprite(300,100);
+  gameOver = createSprite(530,180);
   gameOver.addImage(gameOverImg);
   
-  restart = createSprite(300,140);
+  restart = createSprite(530,200);
   restart.addImage(restartImg);
   
  
-  gameOver.scale = 0.4;
-  restart.scale = 0.08;
+  gameOver.scale = 1.0;
+  restart.scale = 1.0;
   
-  invisibleGround = createSprite(200,190,400,10);
+  invisibleGround = createSprite(200,550,400,10);
   invisibleGround.visible = false;
   
   obstaclesGroup = createGroup();
   cloudsGroup = createGroup();
 
   
-  player.setCollider("rectangle",0,0,100,300);
+  player.setCollider("rectangle",0,0,20,100);
   
   score = 0;
   
@@ -166,7 +166,7 @@ function reset(){
 
 function spawnObstacles(){
  if (frameCount % 50 === 0){
-   var obstacle = createSprite(600,170,10,40);
+   var obstacle = createSprite(1350,550,10,40);
    obstacle.velocityX = -8;
    
     //generate random obstacles
@@ -187,19 +187,19 @@ function spawnObstacles(){
       default: break;
     }
    
-    obstacle.scale = 0.1;
+    obstacle.scale = 1.0;
     obstacle.lifetime = 300;
-   obstacle.setCollider("rectangle",0,0,200,400)
+   obstacle.setCollider("rectangle",0,0,20,30)
     obstaclesGroup.add(obstacle);
  }
 }
 
 function spawnClouds() {
   if (frameCount % 60 === 0) {
-    var cloud = createSprite(600,120,40,10);
-    cloud.y = Math.round(random(80,120));
+    var cloud = createSprite(1350,120,40,10);
+    cloud.y = Math.round(random(100,170));
     cloud.addImage(cloudImage);
-    cloud.scale = 0.5;
+    cloud.scale = 0.8;
     cloud.velocityX = -3;
     
     cloud.lifetime = 200;
