@@ -44,7 +44,7 @@ function setup() {
   var message = "This is a message";
  console.log(message)
    bg = createSprite(700,130,600,200);
-  player = createSprite(50,160,20,50);
+  player = createSprite(120, 200);
   player.addAnimation("running", player_running);
   player.addAnimation("collided", player_collided);
   bg.addImage("bg",bgImage)
@@ -52,15 +52,16 @@ function setup() {
 
   player.scale = 0.9;
   
+    gameOver = createSprite(600,300);
+  gameOver.addImage(gameOverImg);
+  
+  restart = createSprite(600,330);
+  restart.addImage(restartImg);
+  
   ground = createSprite(700,300);
   ground.addImage("chao", groundImage);
   ground.x = ground.width /2;
-  
-  gameOver = createSprite(530,180);
-  gameOver.addImage(gameOverImg);
-  
-  restart = createSprite(530,200);
-  restart.addImage(restartImg);
+
   
  
   gameOver.scale = 1.0;
@@ -81,17 +82,13 @@ function setup() {
 
 function draw() {
   
-  background("white");
-  fill("red")
-  text("Score: "+ score, 500,10);
-
   if(gameState === PLAY){
 
     gameOver.visible = false;
     restart.visible = false;
     
-    ground.velocityX = -8 ;
-    score = score + Math.round(frameRate()/30);
+    ground.velocityX = -12 ;
+    score = score + Math.round(frameRate()/60);
     
     if(score>0 && score%100 === 0){
        checkPointSound.play() 
@@ -103,7 +100,7 @@ function draw() {
     player.depth = ground.depth+1
     
     if(keyDown("space")&& player.y >= 130) {
-        player.velocityY = -8;
+        player.velocityY = -12;
         jumpSound.play();
     }
     
@@ -201,7 +198,7 @@ function spawnClouds() {
     cloud.y = Math.round(random(100,170));
     cloud.addImage(cloudImage);
     cloud.scale = 0.8;
-    cloud.velocityX = -3;
+    cloud.velocityX = -8;
     
     cloud.lifetime = 200;
     
