@@ -23,3 +23,4 @@ Para a personagem principal usámos uma personagem do jogo “Warframe” para t
 
 Para os componentes do jogo colocamos alguns sons e sprites que foram elaborados por nós como os drones, o boneco, os espinhos, o logo, e todos os outros elementos do cenário.
 
+Relatório: https://docs.google.com/document/d/1ePo5jN4eshtJFewx7DpGPDQLtwYuQBSmQctQ5qgItic/edit?usp=sharing
